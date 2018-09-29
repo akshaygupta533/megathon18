@@ -9,7 +9,6 @@ clock = pygame.time.Clock()
 
 #initialize objects here
 
-en = enemy()
 while True:
     
    
@@ -34,7 +33,6 @@ while True:
             pygame.quit()
     
     #render elements here
-    en.draw(500,500,10)
 
     pygame.display.update()
     clock.tick(60) 

@@ -1,11 +1,14 @@
 import pygame
 from settings import *
+from Entity import *
 
+class enemy(Character):
+    def __init__(self,health, canThrow, speedX, speedY, x, y, armour, icon):
+        super().__init__(health, canThrow, speedX, speedY, x, y, armour, icon)
 
-class enemy:
-    def __init__(self):
-        self.x = 150
-        self.y = 300
+    def onHit(self, distance):
+        super().onHit(distance)
+
     def draw(self,targetx,targety,radius):
         prev_x = self.x
         prev_y = self.y
