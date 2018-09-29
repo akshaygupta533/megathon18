@@ -1,5 +1,5 @@
 # player and enemy functions (bombthrow and damage)
-from player import *
+from Entity import *
 from bomb import *
 import math
 
