@@ -7,7 +7,7 @@ class bomb():
         self.speed=[0,0]
         self.blown=False
     def thrown(self,xsp,ysp):
-        self.speed=[xsp,ysp]
+        self.speed=[xsp+1,ysp+1]
     def move(self):
         self.pos+=self.speed
         if self.speed[0]>0:

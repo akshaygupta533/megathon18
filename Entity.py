@@ -33,11 +33,11 @@ class Player(Character):
 def movement(self, dir):
         if dir == 'a':
             self.x -= self.speed
-        elif dir == 'd'
+        elif dir == 'd':
             self.x += self.speed
-        elif dir == 'w'
+        elif dir == 'w':
             self.y += self.speed    
-        elif dir == 's'
+        elif dir == 's':
             self.y -= self.speed
 
 
