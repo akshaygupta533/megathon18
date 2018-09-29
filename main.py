@@ -1,5 +1,6 @@
 import pygame 
 from settings import *
+from enemy import *
 import random
 pygame.init()
 
@@ -8,21 +9,22 @@ clock = pygame.time.Clock()
 
 #initialize objects here
 
+en = enemy()
 while True:
     
    
     screen.fill(black)
     #Draw board here
-    keys = pygame.key.get_pressed()  #checking pressed keys here
-    if keys[pygame.K_UP]:
+    # keys = pygame.key.get_pressed()  #checking pressed keys here
+    # if keys[pygame.K_UP]:
         
-    elif keys[pygame.K_DOWN]:
-        
-        
-    elif keys[pygame.K_LEFT]:
+    # elif keys[pygame.K_DOWN]:
         
         
-    elif keys[pygame.K_RIGHT]:
+    # elif keys[pygame.K_LEFT]:
+        
+        
+    # elif keys[pygame.K_RIGHT]:
         
         
 
@@ -32,6 +34,7 @@ while True:
             pygame.quit()
     
     #render elements here
-    
+    en.draw(500,500,10)
+
     pygame.display.update()
     clock.tick(60) 
