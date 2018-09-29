@@ -9,11 +9,12 @@ class bomb():
     def thrown(self,xsp,ysp):
         self.speed=[xsp+1,ysp+1]
     def move(self):
-        self.pos+=self.speed
+        self.pos[0]+=self.speed[0]
+        self.pos[1]+=self.speed[1]
         if self.speed[0]>0:
-            self.speed[0]-=0.1
+            self.speed[0]-=0.2
         if self.speed[1]>0:
-            self.speed[1]-=0.1
+            self.speed[1]-=0.2
     def reducetime(self):
         self.timer-=1
     def gettime(self):
