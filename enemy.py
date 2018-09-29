@@ -26,7 +26,7 @@ class enemy(Character):
             self.x = prev_x
             self.y = prev_y
 
-        self.image = pygame.image.load('rsz_1enemy.png')
+        self.image = pygame.image.load('enemy.png')
         self.rect = self.image.get_rect()
         self.rect.centerx = self.x
         self.rect.centery = self.y
