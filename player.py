@@ -1,6 +1,6 @@
 #module for player
 speedy=speedx=3
-bombRenewCount=5
+bombtime=pygame.time.Clock()
 class player():
     def __init__(self,x,y):
         self.x=x
@@ -8,7 +8,8 @@ class player():
         self.health=3
         self.speedx=speedx
         self.speedy=speedy
-        self.bombRenewCount=bombRenenewCount
+        self.bombtime=bombtime
+        self.canthrow=True
     
     def getx(self):
         return self.x
@@ -33,4 +34,5 @@ class player():
         pass
         #
     
-    
+    def setTime(self,timenow):
+        self.bomb=timenow
