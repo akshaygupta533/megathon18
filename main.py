@@ -6,7 +6,6 @@ from Entity import *
 from bomb import *
 from bombthrow import *
 from board import *
-from pygame.locals import *
 
 pygame.init()
 
@@ -42,14 +41,17 @@ while True:
     if keys[pygame.K_a]:
         player.movement('a')
 
-    if keys[K_RIGHT]:
-        pass
+    if keys[pygame.K_d]:
+        player.movement('d')
 
-    if keys[K_UP]:
-        pass
+    if keys[pygame.K_w]:
+        player.movement('w')
 
-    if keys[K_DOWN]:
-        pass
+    if keys[pygame.K_s]:
+        player.movement('s')
+
+    if keys[pygame.K_q]:
+        break
     #render elements here
 
     pygame.display.update()
