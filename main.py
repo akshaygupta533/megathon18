@@ -1,44 +1,42 @@
-import pygame 
-from settings import *
+import pygame
+import random
+import sys
 from enemy import *
 from Entity import *
 from bomb import *
 from bombthrow import *
-import random
+from board import *
+from pygame.locals import *
+
 pygame.init()
 
-pygame.display.update()
 clock = pygame.time.Clock()
-p = Player()
-b = bomb(300,300)
+white = (255,255,255)
+black = (0,0,0)
+red = (255,0,0)
+blue = (0,0,255)
+green = (0,255,0)
+brown = (255,64,64)
+
+w,h = 1200,600
+screen = pygame.display.set_mode((w,h))
+line_width = 10
+
+board = Board(screen,w,h)
+player = Player()
 #initialize objects here
 
 while True:
-    
-   
     screen.fill(black)
-    #Draw board here
-    # keys = pygame.key.get_pressed()  #checking pressed keys here
-    # if keys[pygame.K_UP]:
-        
-    # elif keys[pygame.K_DOWN]:
-        
-        
-    # elif keys[pygame.K_LEFT]:
-        
-        
-    # elif keys[pygame.K_RIGHT]:
-        
-        
+    board.draw()
+    player.draw()
 
-    for event in pygame.event.get():
 
-        if event.type == pygame.QUIT:
-            pygame.quit()
-    
+    if pygame.key.get_pressed()[pygame.K_a]:
+        print("hi")
+        player.movement('a')
+
     #render elements here
-    p.draw()
-    b.draw()
-    pygame.display.update()
 
-    clock.tick(60) 
+    pygame.display.update()
+clock.tick(60)
