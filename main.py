@@ -6,7 +6,6 @@ from Entity import *
 from bomb import *
 from bombthrow import *
 from board import *
-from pygame.locals import *
 
 pygame.init()
 
