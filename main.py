@@ -24,10 +24,14 @@ line_width = 10
 board = Board(screen,w,h)
 player = Player()
 enemylist=[]
+bomblist=[]
+playerbomb=bomb(10,10)
 for i in range(3):
     rand1=randint(600,1100)
     rand2=randint(50,550)
-    en=enemy(100,True,1,1,rand1,rand2,50)
+    rand3=randint(20,100)/300    
+    rand4=randint(20,100)/300    
+    en=enemy(100,True,rand3,rand4,rand1,rand2,50,rand3,rand4)
     enemylist.append(en)
 #initialize objects here
 
@@ -35,6 +39,9 @@ while True:
     screen.fill(black)
     board.draw()
     player.draw()
+    throwbomb=False
+    bombthrow(board,player,enemylist,bomblist,throwbomb,playerbomb)
+    drawbomb(board,bomblist)
     for i in enemylist:
         i.draw(player.x,player.y,5)
     keys = pygame.key.get_pressed()

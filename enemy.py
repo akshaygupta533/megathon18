@@ -1,10 +1,12 @@
 import pygame
 from settings import *
 from Entity import *
-
+import random
 class enemy(Character):
-    def __init__(self,health, canThrow, speedx, speedy, x, y, armour):
-        super().__init__(health, canThrow, speedx, speedy, x, y, armour)
+    def __init__(self,health, canthrow, speedx, speedy, x, y, armour,rand1,rand2):
+        super().__init__(health, canthrow, speedx, speedy, x, y, armour)
+        self.rand1=rand1
+        self.rand2=rand2
 
     def onHit(self, distance):
         super().onHit(distance)
@@ -13,17 +15,17 @@ class enemy(Character):
         prev_x = self.x
         prev_y = self.y
         if targetx - self.x>0:
-            self.speedx=1
+            self.speedx=self.rand1
             self.x+=self.speedx
         elif targetx - self.x<0:
-            self.speedx=-1
+            self.speedx=-self.rand1
             self.x+=self.speedx
         
         if targety - self.y>0:
-            self.speedy=1
+            self.speedy=self.rand2
             self.y+=self.speedy
         elif targety - self.y<0:
-            self.speedy=-1
+            self.speedy=-self.rand2
             self.y+=self.speedy
         
         if math.sqrt((self.x - targetx)**2 + (self.y - targety)**2)<radius:
