@@ -17,36 +17,20 @@ class Character():
 
 class Player(Character):
     def __init__(self):
-        super().__init__(100, True, 5,5, 300, 300,5)
+        super().__init__(100, True, 1,1, 300, 300,5)
 
     def movement(self, dir):
         if dir == 'a':
-<<<<<<< HEAD
             self.speedX = -1
-=======
-            self.speedX = -0.5
->>>>>>> 34be36f41ef5733f98b7b404a5953f0f70e514d9
             self.x += self.speedX
         elif dir == 'd':
-<<<<<<< HEAD
             self.speedX = +1
-=======
-            self.speedX = +0.5
->>>>>>> 34be36f41ef5733f98b7b404a5953f0f70e514d9
             self.x += self.speedX
         elif dir == 'w':
-<<<<<<< HEAD
             self.speedY = -1
-=======
-            self.speedY = -0.5
->>>>>>> 34be36f41ef5733f98b7b404a5953f0f70e514d9
             self.y += self.speedY
         elif dir == 's':
-<<<<<<< HEAD
             self.speedY = +1
-=======
-            self.speedY = +0.5
->>>>>>> 34be36f41ef5733f98b7b404a5953f0f70e514d9
             self.y += self.speedY
 
     def draw(self):
