@@ -23,7 +23,8 @@ def bombthrow(board,player,enemylist,bomblist,throwbomb,playerbomb):
 def drawbomb(board,bomblist):
     for i in bomblist:
         i.draw()
-        i.move()
+        if not i.blown():
+            i.move()
 
 def damageHandeler(board,player,enemylist,bomblist,playerbomb):
     for i in bomblist:
@@ -31,9 +32,21 @@ def damageHandeler(board,player,enemylist,bomblist,playerbomb):
             i.blowup()
             d=math.sqrt((i.pos[0]-player.x)*(i.pos[0]-player.x)+(i.pos[1]-player.y)*(i.pos[1]-player.y))
             player.onHit(d)
+            #i.blown=True
+            self.image = pygame.image.load('blast.png')
+            self.rect = self.image.get_rect()
+            self.rect.centerx = self.pos[0]
+            self.rect.centery = self.pos[1]
+            screen.blit(self.image, self.rect)
     
     if playerbomb.gettime()==0 and not playerbomb.blown:
         i.blowup()
         for i in enemylist:
             d=math.sqrt((playerbomb.pos[0]-i.x)*(playerbomb.pos[0]-i.x)+(playerbomb.pos[1]-i.y)*(playerbomb.pos[1]-i.y))
-            i.onHit(d)    
+            i.onHit(d)
+            self.image = pygame.image.load('blast.png')
+            self.rect = self.image.get_rect()
+            self.rect.centerx = self.pos[0]
+            self.rect.centery = self.pos[1]
+            screen.blit(self.image, self.rect)
+        

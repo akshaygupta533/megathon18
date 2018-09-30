@@ -17,6 +17,8 @@ class bomb():
             self.speed[0]-=0.2
         if self.speed[1]>0:
             self.speed[1]-=0.2
+    def setpos(self,x,y):
+        self.pos=[x,y]
     def reducetime(self):
         self.timer-=1
     def gettime(self):
