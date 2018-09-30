@@ -31,11 +31,18 @@ while True:
     board.draw()
     player.draw()
 
-
-    if pygame.key.get_pressed()[pygame.K_a]:
-        print("hi")
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
         player.movement('a')
 
+    if keys[K_RIGHT]:
+        pass
+
+    if keys[K_UP]:
+        pass
+
+    if keys[K_DOWN]:
+        pass
     #render elements here
 
     pygame.display.update()
