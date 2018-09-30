@@ -32,17 +32,19 @@ while True:
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a]:
-        print("a")
         player.movement('a')
 
-    if keys[K_RIGHT]:
-        pass
+    if keys[pygame.K_d]:
+        player.movement('d')
 
-    if keys[K_UP]:
-        pass
+    if keys[pygame.K_w]:
+        player.movement('w')
 
-    if keys[K_DOWN]:
-        pass
+    if keys[pygame.K_s]:
+        player.movement('s')
+
+    if keys[pygame.K_q]:
+        break
     #render elements here
 
     pygame.display.update()
