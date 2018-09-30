@@ -6,9 +6,10 @@ from Entity import *
 from bomb import *
 from bombthrow import *
 from board import *
+import time
 
 pygame.init()
-
+initial_time = time.time()
 clock = pygame.time.Clock()
 white = (255,255,255)
 black = (0,0,0)
@@ -26,17 +27,23 @@ player = Player()
 enemylist=[]
 bomblist=[]
 playerbomb=bomb(10,10)
+flag = False
 for i in range(3):
     rand1=randint(600,1100)
     rand2=randint(50,550)
-    rand3=randint(20,100)/300    
-    rand4=randint(20,100)/300    
+    rand3=randint(20,100)/300
+    rand4=randint(20,100)/300
     en=enemy(100,True,rand3,rand4,rand1,rand2,50,rand3,rand4)
     enemylist.append(en)
 #initialize objects here
 
 while True:
     screen.fill(black)
+    final_time = time.time()
+    if((int)(final_time) - (int)(initial_time) == 1):
+        print((int)(final_time) - (int)(initial_time))
+        flag = True
+        initial_time = final_time
     board.draw()
     player.draw()
     throwbomb=False
