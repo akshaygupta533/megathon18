@@ -52,6 +52,11 @@ while True:
 
     if keys[pygame.K_q]:
         break
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            pygame.quit()
     #render elements here
 
     pygame.display.update()
