@@ -3,8 +3,8 @@ from settings import *
 from Entity import *
 
 class enemy(Character):
-    def __init__(self,health, canThrow, speedX, speedY, x, y, armour, icon):
-        super().__init__(health, canThrow, speedX, speedY, x, y, armour, icon)
+    def __init__(self,health, canThrow, speedx, speedy, x, y, armour):
+        super().__init__(health, canThrow, speedx, speedy, x, y, armour)
 
     def onHit(self, distance):
         super().onHit(distance)
@@ -13,16 +13,20 @@ class enemy(Character):
         prev_x = self.x
         prev_y = self.y
         if targetx - self.x>0:
-            self.x+=1
+            self.speedx=1
+            self.x+=self.speedx
         elif targetx - self.x<0:
-            self.x-=1
+            self.speedx=-1
+            self.x+=self.speedx
         
         if targety - self.y>0:
-            self.y+=1
+            self.speedy=1
+            self.y+=self.speedy
         elif targety - self.y<0:
-            self.y-=1
+            self.speedy=-1
+            self.y+=self.speedy
         
-        if math.sqrt((self.x - targetx)**2 + (self.y - targety)**2)<radius**2:
+        if math.sqrt((self.x - targetx)**2 + (self.y - targety)**2)<radius:
             self.x = prev_x
             self.y = prev_y
 

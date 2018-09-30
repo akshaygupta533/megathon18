@@ -17,21 +17,21 @@ class Character():
 
 class Player(Character):
     def __init__(self):
-        super().__init__(100, True, 5,5, 300, 300,5)
+        super().__init__(100, True, 1,1, 300, 300,5)
 
     def movement(self, dir):
         print(dir)
         if dir == 'a':
-            self.speedX = -5
+            self.speedX = -1
             self.x += self.speedX
         elif dir == 'd':
-            self.speedX = +5
+            self.speedX = +1
             self.x += self.speedX
         elif dir == 'w':
-            self.speedY = -5
+            self.speedY = -1
             self.y += self.speedY
         elif dir == 's':
-            self.speedY = +5
+            self.speedY = +1
             self.y += self.speedY
 
     def draw(self):

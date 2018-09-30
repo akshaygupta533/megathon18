@@ -24,16 +24,22 @@ line_width = 10
 
 board = Board(screen,w,h)
 player = Player()
+enemylist=[]
+for i in range(3):
+    rand1=randint(600,1100)
+    rand2=randint(50,550)
+    en=enemy(100,True,1,1,rand1,rand2,50)
+    enemylist.append(en)
 #initialize objects here
 
 while True:
     screen.fill(black)
     board.draw()
     player.draw()
-
+    for i in enemylist:
+        i.draw(player.x,player.y,5)
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a]:
-        print("a")
         player.movement('a')
 
     if keys[K_RIGHT]:
