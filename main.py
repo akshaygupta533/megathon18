@@ -31,24 +31,27 @@ flag = False
 for i in range(3):
     rand1=randint(600,1100)
     rand2=randint(50,550)
-    rand3=randint(20,100)/300
-    rand4=randint(20,100)/300
+    rand3=randint(20,100)/250
+    rand4=randint(20,100)/250
     en=enemy(100,True,rand3,rand4,rand1,rand2,50,rand3,rand4)
     enemylist.append(en)
 #initialize objects here
 
 while True:
+    # print(player.health)
     screen.fill(black)
     final_time = time.time()
     if((int)(final_time) - (int)(initial_time) == 1):
-        print((int)(final_time) - (int)(initial_time))
+        #print((int)(final_time) - (int)(initial_time))
         flag = True
         initial_time = final_time
     board.draw()
     player.draw()
+    blastshow(bomblist,playerbomb)
     throwbomb=False
     bombthrow(board,player,enemylist,bomblist,throwbomb,playerbomb)
-    drawbomb(board,bomblist)
+    drawbomb(board,bomblist,playerbomb)
+    damageHandeler(board,player,enemylist,bomblist,playerbomb)
     for i in enemylist:
         i.draw(player.x,player.y,5)
     keys = pygame.key.get_pressed()
@@ -66,8 +69,29 @@ while True:
 
     if keys[pygame.K_q]:
         break
-    #render elements here
-
+    if flag==True:
+        for i in bomblist:
+            i.reducetime()
+        for i in bomblist:
+            if i.blast==True:
+                i.blast=False
+        if playerbomb.blast==True:
+            playerbomb.blast=False
+        for i in enemylist:
+            if i.canthrow==False:
+                if i.count==0:
+                    i.canthrow=True
+                    i.count=5
+                else:
+                    i.reducecount()
+        if player.canthrow==False:
+            if player.count==0:
+                player.canthrow=True
+                player.count=5
+            else:
+                player.reducecount()
+        
+        flag=False
     pygame.display.update()
     pygame.event.pump()
 clock.tick(60)

@@ -4,19 +4,25 @@ from settings import *
 bombtime=5
 class bomb():
     def __init__(self,x,y):
-        self.timer=5
+        self.timer=3
         self.pos=[x,y]
         self.speed=[0,0]
         self.blown=False
+        self.blast=False
     def thrown(self,xsp,ysp):
-        self.speed=[xsp+1,ysp+1]
+        self.speed=[xsp,ysp]
     def move(self):
         self.pos[0]+=self.speed[0]
         self.pos[1]+=self.speed[1]
         if self.speed[0]>0:
-            self.speed[0]-=0.2
+            self.speed[0]-=0.01
+        if self.speed[0]<0:
+            self.speed[0]+=0.01
         if self.speed[1]>0:
-            self.speed[1]-=0.2
+            self.speed[1]-=0.01
+        if self.speed[1]<0:
+            self.speed[1]+=0.01
+
     def setpos(self,x,y):
         self.pos=[x,y]
     def reducetime(self):

@@ -11,10 +11,13 @@ class Character():
         self.x = x
         self.y = y
         self.armour = armour
+        self.count=5
 
     def onHit(self, distance):
-        self.health-=(1/(1+distance))*0.5/self.armour
-
+        if distance<100:
+            self.health-=(1/(1+distance))*5550/self.armour
+    def reducecount(self):
+        self.count-=1
 class Player(Character):
     def __init__(self):
         super().__init__(100, True, 1,1, 300, 300,5)
