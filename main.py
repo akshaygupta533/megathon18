@@ -32,6 +32,7 @@ while True:
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a]:
+        print("a")
         player.movement('a')
 
     if keys[K_RIGHT]:
@@ -45,4 +46,5 @@ while True:
     #render elements here
 
     pygame.display.update()
+    pygame.event.pump()
 clock.tick(60)

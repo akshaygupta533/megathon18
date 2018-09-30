@@ -4,6 +4,7 @@ from bomb import *
 import math
 
 #make throwbomb true if plaer presses button for bomb throw
+#playerbomb is player's bomb
 def bombthrow(board,player,enemylist,bomblist,throwbomb,playerbomb):
     for i in enemylist:
         if i.canthrow == True:
