@@ -23,15 +23,23 @@ class Player(Character):
         if dir == 'a':
             self.speedX = -1
             self.x += self.speedX
+            if(self.x < 40):
+                self.x = 40
         elif dir == 'd':
             self.speedX = +1
             self.x += self.speedX
+            if(self.x > 1140):
+                self.x = 1140
         elif dir == 'w':
             self.speedY = -1
             self.y += self.speedY
+            if(self.y < 40):
+                self.y = 40
         elif dir == 's':
             self.speedY = +1
             self.y += self.speedY
+            if(self.y > 510):
+                self.y = 510
 
     def draw(self):
         self.image = pygame.image.load('player.png')
